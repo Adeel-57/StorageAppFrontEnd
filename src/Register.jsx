@@ -8,7 +8,8 @@ import googleLogin from "./utils/googleSignin";
 
 const Register = () => {
   const navigate = useNavigate();
-  const BASE_URL = "http://localhost:4000";
+  const BASE_URL =
+    "https://9d0d88e9-6bd2-4673-a08f-33671041c47b-00-35z61v490r1d8.sisko.replit.dev";
 
   // Error will hold the error message from the server or request failure
   const [isVerified, setIsVerified] = useState(false);
@@ -229,7 +230,7 @@ const Register = () => {
           }}
           text="signin_with"
           onError={(err) => {
-            setServerError("Something went wrong. Please try again!")
+            setServerError("Something went wrong. Please try again!");
           }}
         ></GoogleLogin>
       </div>

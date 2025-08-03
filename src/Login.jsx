@@ -5,7 +5,8 @@ import { GoogleLogin } from "@react-oauth/google";
 import googleLogin from "./utils/googleSignin";
 
 const Login = () => {
-  const BASE_URL = "http://localhost:4000";
+  const BASE_URL =
+    "http://localhost:4000https://9d0d88e9-6bd2-4673-a08f-33671041c47b-00-35z61v490r1d8.sisko.replit.dev";
 
   const [formData, setFormData] = useState({
     email: "adeel@gmail.com",
@@ -36,12 +37,12 @@ const Login = () => {
 
     try {
       const formdata = new FormData();
-      formdata.append('email', formData.email)
-      formdata.append('password', formData.password)
+      formdata.append("email", formData.email);
+      formdata.append("password", formData.password);
       const response = await fetch(`${BASE_URL}/user/login`, {
         method: "POST",
         body: formdata,
-        credentials: 'include'
+        credentials: "include",
       });
 
       const data = await response.json();
@@ -112,18 +113,18 @@ const Login = () => {
       </p>
       <div className="or-divider">OR</div>
       <GoogleLogin
-      onSuccess={async(response)=>{
-        const data =await googleLogin(response.credential)
-        if(data.error){
-          setServerError(data.error)
-        }else{
-          navigate('/');
-        }
-      }}
-      text="signin_with"
-      onError={(err)=>{
-        setServerError("Something went wrong. Please try again!");
-      }}
+        onSuccess={async (response) => {
+          const data = await googleLogin(response.credential);
+          if (data.error) {
+            setServerError(data.error);
+          } else {
+            navigate("/");
+          }
+        }}
+        text="signin_with"
+        onError={(err) => {
+          setServerError("Something went wrong. Please try again!");
+        }}
       ></GoogleLogin>
     </div>
   );
