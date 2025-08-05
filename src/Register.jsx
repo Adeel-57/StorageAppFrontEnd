@@ -19,9 +19,9 @@ const Register = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   const [formData, setFormData] = useState({
-    name: "Adeel",
-    email: "adeel@gmail.com",
-    password: "abcd",
+    name: "",
+    email: "",
+    password: "",
   });
 
   // Handler for input changes
@@ -218,20 +218,22 @@ const Register = () => {
           Already have an account? <Link to="/login">Login</Link>
         </p>
         <div class="or-divider">OR</div>
-        <GoogleLogin
-          onSuccess={async (response) => {
-            const data = await googleLogin(response.credential);
-            if (data.error) {
-              setServerError(data.error);
-            } else {
-              navigate("/");
-            }
-          }}
-          text="signin_with"
-          onError={(err) => {
-            setServerError("Something went wrong. Please try again!");
-          }}
-        ></GoogleLogin>
+        <div style={{ marginInline: "auto" }}>
+          <GoogleLogin
+            onSuccess={async (response) => {
+              const data = await googleLogin(response.credential);
+              if (data.error) {
+                setServerError(data.error);
+              } else {
+                navigate("/");
+              }
+            }}
+            text="signin_with"
+            onError={(err) => {
+              setServerError("Something went wrong. Please try again!");
+            }}
+          ></GoogleLogin>
+        </div>
       </div>
     </>
   );

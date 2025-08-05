@@ -8,8 +8,8 @@ const Login = () => {
   const BASE_URL = "https://storageapp-production-e5a5.up.railway.app";
 
   const [formData, setFormData] = useState({
-    email: "adeel@gmail.com",
-    password: "abcd",
+    email: "",
+    password: "",
   });
 
   // serverError will hold the error message from the server
@@ -111,20 +111,22 @@ const Login = () => {
         Don't have an account? <Link to="/register">Register</Link>
       </p>
       <div className="or-divider">OR</div>
-      <GoogleLogin
-        onSuccess={async (response) => {
-          const data = await googleLogin(response.credential);
-          if (data.error) {
-            setServerError(data.error);
-          } else {
-            navigate("/");
-          }
-        }}
-        text="signin_with"
-        onError={(err) => {
-          setServerError("Something went wrong. Please try again!");
-        }}
-      ></GoogleLogin>
+      <div style={{ marginInline: "auto" }}>
+        <GoogleLogin
+          onSuccess={async (response) => {
+            const data = await googleLogin(response.credential);
+            if (data.error) {
+              setServerError(data.error);
+            } else {
+              navigate("/");
+            }
+          }}
+          text="signin_with"
+          onError={(err) => {
+            setServerError("Something went wrong. Please try again!");
+          }}
+        ></GoogleLogin>
+      </div>
     </div>
   );
 };
