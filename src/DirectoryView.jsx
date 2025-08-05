@@ -8,8 +8,7 @@ import "./DirectoryView.css";
 import "./userProfile.css";
 
 function DirectoryView() {
-  const BASE_URL =
-    "https://9d0d88e9-6bd2-4673-a08f-33671041c47b-00-35z61v490r1d8.sisko.replit.dev";
+  const BASE_URL = "https://storageapp-production-e5a5.up.railway.app";
   const { dirId } = useParams();
   const navigate = useNavigate();
 
