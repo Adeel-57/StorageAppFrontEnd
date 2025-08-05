@@ -212,7 +212,6 @@ const Register = () => {
             {isSuccess ? "Registration Successful" : "Register"}
           </button>
         </form>
-
         {/* Link to the login page */}
         <p className="link-text">
           Already have an account? <Link to="/login">Login</Link>
